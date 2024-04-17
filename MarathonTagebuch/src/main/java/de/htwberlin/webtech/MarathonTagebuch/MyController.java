@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 public class MyController {
-    @GetMapping//("/marathondiary")
+    @GetMapping("/marathondiary")
     public List<MarathonDiary> Greeting () {
         MarathonDiary entry = new MarathonDiary(2.5,5.0, 3.0, 5.0, false);
         MarathonDiary entry1 = new MarathonDiary(2.0,6.0, 4.0, 3.0, false);
