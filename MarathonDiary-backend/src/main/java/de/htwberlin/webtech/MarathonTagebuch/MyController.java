@@ -12,7 +12,7 @@ public class MyController {
         MarathonDiary entry = new MarathonDiary(2.5,5.0, 3.0, 5.0, false);
         MarathonDiary entry1 = new MarathonDiary(2.0,6.0, 4.0, 3.0, false);
         MarathonDiary entry2 = new MarathonDiary(4.0,10.0, 10.0, 3.5, true);
-        MarathonDiary entry3 = new MarathonDiary(5.0,12.0, 10.0, 5.0, false);
+        MarathonDiary entry3 = new MarathonDiary(3.0,12.0, 10.0, 5.0, false);
         MarathonDiary entry4 = new MarathonDiary(5.0,12.0, 10.5, 5.0, false);
         return List.of(entry, entry1, entry2, entry3, entry4);
     }
