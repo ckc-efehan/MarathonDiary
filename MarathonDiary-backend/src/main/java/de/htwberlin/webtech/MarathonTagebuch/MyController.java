@@ -1,14 +1,18 @@
 package de.htwberlin.webtech.MarathonTagebuch;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@RequestMapping("entries")
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class MyController {
-    @GetMapping("/marathondiary")
+    @GetMapping
     public List<MarathonDiary> Greeting () {
         MarathonDiary entry = new MarathonDiary(LocalDate.of(2024,05,17), 2.5, 5.0, 3.0, 5.0, false);
         MarathonDiary entry1 = new MarathonDiary(LocalDate.of(2024,05,15),2.0,6.0, 4.0, 3.0, false);
