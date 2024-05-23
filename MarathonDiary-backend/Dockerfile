@@ -1,9 +1,12 @@
-FROM gradle:8-jdk21 as builder
-WORKDIR /
-COPY . ./
-RUN gradle build
+# Stage 1: Build the application with Gradle
+FROM gradle:8-jdk21 AS builder
+WORKDIR /app
+COPY . .
+RUN gradle build --no-daemon
 
+# Stage 2: Create the final image
 FROM openjdk:21-slim
 LABEL authors="efehan.cekic"
-COPY --from=builder build/libs .
-ENTRYPOINT ["java","-jar","/backend-0.0.1-SNAPSHOT.jar"]
+WORKDIR /app
+COPY --from=builder /app/build/libs/MarathonTagebuch-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
