@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequestMapping("entries")
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://marathondiary.onrender.com"})
 public class MyController {
     @GetMapping
     public List<MarathonDiary> Greeting () {
