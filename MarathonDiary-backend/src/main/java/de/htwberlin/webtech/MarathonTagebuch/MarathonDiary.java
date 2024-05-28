@@ -3,6 +3,7 @@ package de.htwberlin.webtech.MarathonTagebuch;
 import java.time.LocalDate;
 import java.util.Date;
 
+
 public class MarathonDiary {
     private LocalDate date;
     private double targetTime;
