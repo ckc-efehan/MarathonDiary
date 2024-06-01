@@ -30,4 +30,9 @@ public class TrainingentriesController {
     public List<TrainingentriesEntity> getAllEntries() {
         return service.getAll();
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteEntry(@PathVariable Long id) {
+        service.delete(id);
+    }
 }
