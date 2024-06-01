@@ -9,5 +9,4 @@ public class MarathonTagebuchApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MarathonTagebuchApplication.class, args);
 	}
-
 }
