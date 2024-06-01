@@ -11,7 +11,7 @@ public class TrainingentriesService {
     @Autowired
     TrainingentriesRepository repo;
 
-    public TrainingentriesEntity save (TrainingentriesEntity trainingentries){
+    public TrainingentriesEntity save(TrainingentriesEntity trainingentries){
         return repo.save(trainingentries);
     }
 
@@ -19,4 +19,7 @@ public class TrainingentriesService {
         return repo.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
+    public List<TrainingentriesEntity> getAll() {
+        return (List<TrainingentriesEntity>) repo.findAll();
+    }
 }

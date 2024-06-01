@@ -10,19 +10,24 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://marathondiary-frontend.onrender.com/"})
+@RequestMapping("/entries")
 public class TrainingentriesController {
 
     @Autowired
     TrainingentriesService service;
 
-    @PostMapping("/entries")
+    @PostMapping
     public TrainingentriesEntity createEntry(@RequestBody TrainingentriesEntity entry){
         return service.save(entry);
     }
 
-    @GetMapping("/entries/{id}")
-    public TrainingentriesEntity getEntry(@PathVariable String id){
-        Long entryID = Long.parseLong(id);
-        return service.get(entryID);
+    @GetMapping("/{id}")
+    public TrainingentriesEntity getEntry(@PathVariable Long id){
+        return service.get(id);
+    }
+
+    @GetMapping
+    public List<TrainingentriesEntity> getAllEntries() {
+        return service.getAll();
     }
 }
