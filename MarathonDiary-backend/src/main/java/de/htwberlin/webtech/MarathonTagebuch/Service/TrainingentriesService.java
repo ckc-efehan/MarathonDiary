@@ -1,6 +1,7 @@
 package de.htwberlin.webtech.MarathonTagebuch.Service;
 
 import de.htwberlin.webtech.MarathonTagebuch.Entities.TrainingentriesEntity;
+import de.htwberlin.webtech.MarathonTagebuch.Entities.UserEntity;
 import de.htwberlin.webtech.MarathonTagebuch.Interface.TrainingentriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class TrainingentriesService {
 
     public List<TrainingentriesEntity> getAll() {
         return (List<TrainingentriesEntity>) repo.findAll();
+    }
+
+    public List<TrainingentriesEntity> getAllByUser(UserEntity user) {
+        return repo.findAllByUser(user);
     }
 
     public void delete(Long id) {

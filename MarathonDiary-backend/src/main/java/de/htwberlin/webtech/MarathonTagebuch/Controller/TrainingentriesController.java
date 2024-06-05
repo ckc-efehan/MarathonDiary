@@ -1,6 +1,7 @@
 package de.htwberlin.webtech.MarathonTagebuch.Controller;
 
 import de.htwberlin.webtech.MarathonTagebuch.Entities.TrainingentriesEntity;
+import de.htwberlin.webtech.MarathonTagebuch.Entities.UserEntity;
 import de.htwberlin.webtech.MarathonTagebuch.Service.TrainingentriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +18,18 @@ public class TrainingentriesController {
     TrainingentriesService service;
 
     @PostMapping
-    public TrainingentriesEntity createEntry(@RequestBody TrainingentriesEntity entry){
+    public TrainingentriesEntity createEntry(@RequestBody TrainingentriesEntity entry, @RequestParam Long userId){
+        UserEntity user = new UserEntity(); // Hole den Benutzer aus der Datenbank oder dem Kontext
+        user.setId(userId);
+        entry.setUser(user);
         return service.save(entry);
     }
 
     @GetMapping
-    public List<TrainingentriesEntity> getAllEntries() {
-        return service.getAll();
+    public List<TrainingentriesEntity> getAllEntries(@RequestParam Long userId) {
+        UserEntity user = new UserEntity(); // Hole den Benutzer aus der Datenbank oder dem Kontext
+        user.setId(userId);
+        return service.getAllByUser(user);
     }
 
     @DeleteMapping("/{id}")
