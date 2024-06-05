@@ -1,7 +1,6 @@
 package de.htwberlin.webtech.MarathonTagebuch.Service;
 
 import de.htwberlin.webtech.MarathonTagebuch.Entities.TrainingentriesEntity;
-import de.htwberlin.webtech.MarathonTagebuch.Entities.UserEntity;
 import de.htwberlin.webtech.MarathonTagebuch.Interface.TrainingentriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

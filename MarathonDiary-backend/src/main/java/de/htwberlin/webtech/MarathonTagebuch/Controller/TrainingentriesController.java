@@ -1,12 +1,10 @@
 package de.htwberlin.webtech.MarathonTagebuch.Controller;
 
 import de.htwberlin.webtech.MarathonTagebuch.Entities.TrainingentriesEntity;
-import de.htwberlin.webtech.MarathonTagebuch.Entities.UserEntity;
 import de.htwberlin.webtech.MarathonTagebuch.Service.TrainingentriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

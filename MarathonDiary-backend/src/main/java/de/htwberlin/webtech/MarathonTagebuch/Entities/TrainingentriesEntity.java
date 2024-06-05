@@ -17,22 +17,17 @@ public class TrainingentriesEntity {
     private double timeRan;
     private boolean goalReached;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-
     //Leerer Konstruktor für Hibernate
     public TrainingentriesEntity() {
     }
 
-    public TrainingentriesEntity(LocalDate date, double targetTime, double targetKilometre, double kilometreRan, double timeRan, boolean goalReached, UserEntity user) {
+    public TrainingentriesEntity(LocalDate date, double targetTime, double targetKilometre, double kilometreRan, double timeRan, boolean goalReached) {
         this.date = date;
         this.targetTime = targetTime;
         this.targetKilometre = targetKilometre;
         this.kilometreRan = kilometreRan;
         this.timeRan = timeRan;
         this.goalReached = goalReached;
-        this.user = user;
     }
 
     public Long getId() {
@@ -89,13 +84,5 @@ public class TrainingentriesEntity {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
     }
 }
