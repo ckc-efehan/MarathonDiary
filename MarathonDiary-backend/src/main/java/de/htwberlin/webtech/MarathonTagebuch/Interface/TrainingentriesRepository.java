@@ -4,9 +4,6 @@ import de.htwberlin.webtech.MarathonTagebuch.Entities.TrainingentriesEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface TrainingentriesRepository extends CrudRepository<TrainingentriesEntity, Long> {
-    List<TrainingentriesEntity> findAllByUser(UserEntity user);
 }

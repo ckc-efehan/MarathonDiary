@@ -21,10 +21,6 @@ public class TrainingentriesService {
         return (List<TrainingentriesEntity>) repo.findAll();
     }
 
-    public List<TrainingentriesEntity> getAllByUser(UserEntity user) {
-        return repo.findAllByUser(user);
-    }
-
     public void delete(Long id) {
         repo.deleteById(id);
     }
