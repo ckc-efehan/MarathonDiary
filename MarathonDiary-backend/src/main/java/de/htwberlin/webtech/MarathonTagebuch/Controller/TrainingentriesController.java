@@ -21,11 +21,6 @@ public class TrainingentriesController {
         return service.save(entry);
     }
 
-    @GetMapping("/{id}")
-    public TrainingentriesEntity getEntry(@PathVariable Long id){
-        return service.get(id);
-    }
-
     @GetMapping
     public List<TrainingentriesEntity> getAllEntries() {
         return service.getAll();

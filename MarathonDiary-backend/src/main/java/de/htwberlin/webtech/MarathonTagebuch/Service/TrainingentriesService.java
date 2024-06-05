@@ -17,10 +17,6 @@ public class TrainingentriesService {
         return repo.save(trainingentries);
     }
 
-    public TrainingentriesEntity get(Long id){
-        return repo.findById(id).orElseThrow(() -> new RuntimeException());
-    }
-
     public List<TrainingentriesEntity> getAll() {
         return (List<TrainingentriesEntity>) repo.findAll();
     }
