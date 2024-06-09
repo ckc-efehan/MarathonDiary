@@ -17,6 +17,10 @@ public class TrainingentriesEntity {
     private double timeRan;
     private boolean goalReached;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
+
     //Leerer Konstruktor für Hibernate
     public TrainingentriesEntity() {
     }
@@ -28,6 +32,14 @@ public class TrainingentriesEntity {
         this.kilometreRan = kilometreRan;
         this.timeRan = timeRan;
         this.goalReached = goalReached;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public Long getId() {
