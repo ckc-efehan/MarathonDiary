@@ -26,4 +26,6 @@ public class TrainingentriesService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+
 }

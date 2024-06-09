@@ -17,6 +17,8 @@ import java.util.List;
 @RequestMapping("/entries")
 public class TrainingentriesController {
 
+
+
     @Autowired
     private TrainingentriesService service;
 
