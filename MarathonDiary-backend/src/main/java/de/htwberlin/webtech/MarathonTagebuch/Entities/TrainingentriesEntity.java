@@ -30,8 +30,6 @@ public class TrainingentriesEntity {
         this.goalReached = goalReached;
     }
 
-
-
     public Long getId() {
         return id;
     }
