@@ -14,12 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
     private CustomUserDetailsService userDetailsService;
 
 
