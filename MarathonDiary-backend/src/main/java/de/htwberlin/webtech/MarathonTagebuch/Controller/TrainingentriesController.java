@@ -30,4 +30,9 @@ public class TrainingentriesController {
     public void deleteEntry(@PathVariable Long id) {
         service.delete(id);
     }
+
+    @PutMapping("/{id}")
+    public TrainingentriesEntity updateEntry(@PathVariable Long id, @RequestBody TrainingentriesEntity entry) {
+        return service.update(id, entry);
+    }
 }

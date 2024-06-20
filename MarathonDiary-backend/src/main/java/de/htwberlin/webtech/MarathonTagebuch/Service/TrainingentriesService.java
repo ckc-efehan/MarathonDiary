@@ -24,4 +24,21 @@ public class TrainingentriesService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+    public TrainingentriesEntity update(Long id, TrainingentriesEntity newEntry) {
+        return repo.findById(id)
+                .map(entry -> {
+                    entry.setDate(newEntry.getDate());
+                    entry.setTargetTime(newEntry.getTargetTime());
+                    entry.setTargetKilometre(newEntry.getTargetKilometre());
+                    entry.setKilometreRan(newEntry.getKilometreRan());
+                    entry.setTimeRan(newEntry.getTimeRan());
+                    entry.setGoalReached(newEntry.isGoalReached());
+                    return repo.save(entry);
+                })
+                .orElseGet(() -> {
+                    newEntry.setId(id);
+                    return repo.save(newEntry);
+                });
+    }
 }
