@@ -20,8 +20,6 @@ import static org.mockito.Mockito.*;
 
 class TrainingentriesServiceTests {
 
-
-
     @Mock
     private TrainingentriesRepository repo;
 
