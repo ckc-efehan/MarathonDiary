@@ -1,7 +1,7 @@
 # Stage 1: Build the application with Gradle
 FROM gradle:8-jdk21 AS builder
 WORKDIR /app
-COPY MarathonDiary-backend .
+COPY . .
 RUN gradle build --no-daemon
 
 # Stage 2: Create the final image
