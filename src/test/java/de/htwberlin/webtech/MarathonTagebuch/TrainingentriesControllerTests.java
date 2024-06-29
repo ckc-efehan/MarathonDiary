@@ -78,4 +78,19 @@ class TrainingentriesControllerTests {
 
         verify(service, times(1)).delete(1L);
     }
+
+    @Test
+    void testUpdateEntry() throws Exception {
+        TrainingentriesEntity entry = new TrainingentriesEntity(LocalDate.now(), 2.0, 5.0, 4.0, 1.5, true);
+        when(service.update(eq(1L), any(TrainingentriesEntity.class))).thenReturn(entry);
+
+        mockMvc.perform(put("/entries/{id}", 1L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"date\":\"2024-06-05\",\"targetTime\":2.0,\"targetKilometre\":5.0,\"kilometreRan\":4.0,\"timeRan\":1.5,\"goalReached\":true}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.targetTime").value(2.0))
+                .andExpect(jsonPath("$.targetKilometre").value(5.0));
+
+        verify(service, times(1)).update(eq(1L), any(TrainingentriesEntity.class));
+    }
 }

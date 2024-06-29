@@ -66,4 +66,28 @@ class TrainingentriesServiceTests {
 
         verify(repo, times(1)).deleteById(1L);
     }
+
+    @Test
+    void testUpdate() {
+        TrainingentriesEntity existingEntry = new TrainingentriesEntity(LocalDate.now(), 2.0, 5.0, 4.0, 1.5, true);
+        existingEntry.setId(1L);
+
+        TrainingentriesEntity updatedEntry = new TrainingentriesEntity(LocalDate.now().plusDays(1), 3.0, 6.0, 5.0, 2.0, false);
+        updatedEntry.setId(1L);
+
+        when(repo.findById(1L)).thenReturn(Optional.of(existingEntry));
+        when(repo.save(any(TrainingentriesEntity.class))).thenReturn(updatedEntry);
+
+        TrainingentriesEntity result = service.update(1L, updatedEntry);
+
+        assertEquals(updatedEntry.getDate(), result.getDate());
+        assertEquals(updatedEntry.getTargetTime(), result.getTargetTime());
+        assertEquals(updatedEntry.getTargetKilometre(), result.getTargetKilometre());
+        assertEquals(updatedEntry.getKilometreRan(), result.getKilometreRan());
+        assertEquals(updatedEntry.getTimeRan(), result.getTimeRan());
+        assertEquals(updatedEntry.isGoalReached(), result.isGoalReached());
+
+        verify(repo, times(1)).findById(1L);
+        verify(repo, times(1)).save(any(TrainingentriesEntity.class));
+    }
 }
