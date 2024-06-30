@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://marathondiary-frontend.onrender.com/"})
+@CrossOrigin(origins = { "https://marathondiary-frontend.onrender.com/", "http://localhost:5173"})
 @RequestMapping("/entries")
 public class TrainingentriesController {
 
