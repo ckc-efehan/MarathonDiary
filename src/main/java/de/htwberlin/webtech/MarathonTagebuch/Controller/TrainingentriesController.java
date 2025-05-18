@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = { "marathondiary-frontend.netlify.app", "http://localhost:5173"})
+@CrossOrigin(origins = { "https://marathondiary-frontend.netlify.app/", "http://localhost:5173"})
 @RequestMapping("/entries")
 public class TrainingentriesController {
 
